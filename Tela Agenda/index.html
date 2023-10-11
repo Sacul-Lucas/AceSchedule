@@ -59,6 +59,7 @@
               </span>
               <div class="func-boxdate">
                 <input
+                  id="datainput"
                   type="date"
                   placeholder="placeholder"
                   required=""
@@ -66,10 +67,17 @@
                 />
               </div>
           <button type="reset" class="func-excluir button">X</button>             
+        </div>  
+        
+        <div id="popup" class="popup">
+            <span class="popup-content">Seu pedido foi enviado com sucesso</span>
+            <button id="fecharPopup" class="popup-close">Fechar</button>
         </div>
-            <button class="funcenviar btn-gray" type="submit"> Enviar </button> 
-        </form>  
-
+        </form>
+        <button id="mostrarPopup" class="funcenviar btn-gray"> Enviar </button>    
+            
+          
+        
       </div>
       
 </div>

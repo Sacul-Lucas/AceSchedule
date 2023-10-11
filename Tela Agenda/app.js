@@ -109,3 +109,35 @@ btns.forEach(btn => {
     
 })
 
+var btt = document.getElementById("mostrarPopup");
+
+function popupp() {
+    var d = document.getElementById("datainput").addEventListener("change", function popo() {
+        var input = this.value;
+        var dateEntered = new Date(input);
+        
+        btt.onclick = function(){
+            if(dateEntered != null) {
+                document.getElementById("popup").style.display = "block";
+                document.getElementById("fecharPopup").addEventListener("click", function() {
+                        document.getElementById("popup").style.display = "none";
+                });
+            }
+        }
+
+    });
+
+    return d;
+
+}
+
+setInterval(popupp(), 1000);
+
+
+
+
+
+
+
+
+
