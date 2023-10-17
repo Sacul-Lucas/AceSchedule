@@ -32,7 +32,7 @@ generateCalendar = (month, year) => {
     let first_day = new Date(year, month, 1)
 
     for (let i = 0; i <= days_of_month[month] + first_day.getDay() - 1; i++) {
-        let day = document.createElement('div')
+        let day = document.createElement('button')
         if (i >= first_day.getDay()) {
             day.classList.add('calendar-day-hover')
             day.innerHTML = i - first_day.getDay() + 1
@@ -108,4 +108,36 @@ btns.forEach(btn => {
     }
     
 })
+
+var btt = document.getElementById("mostrarPopup");
+
+function popupp() {
+    var d = document.getElementById("datainput").addEventListener("change", function popo() {
+        var input = this.value;
+        var dateEntered = new Date(input);
+        
+        btt.onclick = function(){
+            if(dateEntered != null) {
+                document.getElementById("popup").style.display = "block";
+                document.getElementById("fecharPopup").addEventListener("click", function() {
+                        document.getElementById("popup").style.display = "none";
+                });
+            }
+        }
+
+    });
+
+    return d;
+
+}
+
+setInterval(popupp(), 1000);
+
+
+
+
+
+
+
+
 
