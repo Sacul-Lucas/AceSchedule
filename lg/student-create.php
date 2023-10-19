@@ -33,22 +33,18 @@ session_start();
 
                             <div class="mb-3">
                                 <label>Nome</label>
-                                <input type="text" name="name" class="form-control">
+                                <input type="text" name="usuario" class="form-control">
                             </div>
                             <div class="mb-3">
                                 <label>Email</label>
                                 <input type="email" name="email" class="form-control">
                             </div>
                             <div class="mb-3">
-                                <label>Telefone</label>
-                                <input type="text" name="phone" class="form-control">
+                                <label>Senha</label>
+                                <input type="text" name="senha" class="form-control">
                             </div>
                             <div class="mb-3">
-                                <label>Curso</label>
-                                <input type="text" name="course" class="form-control">
-                            </div>
-                            <div class="mb-3">
-                                <button type="submit" name="save_student" class="btn btn-primary">Salvar Aluno</button>
+                                <button type="submit" name="save_cadastro" class="btn btn-primary">Salvar Aluno</button>
                             </div>
 
                         </form>

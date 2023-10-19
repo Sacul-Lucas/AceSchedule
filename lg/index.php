@@ -34,34 +34,32 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Nome</th>
+                                    <th>Usuario</th>
                                     <th>Email</th>
-                                    <th>Telefone</th>
-                                    <th>Curso</th>
-                                    <th>Ação</th>
+                                    <th>Senha</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php 
-                                    $query = "SELECT * FROM students";
+                                    $query = "SELECT * FROM cadastro";
                                     $query_run = mysqli_query($con, $query);
 
                                     if(mysqli_num_rows($query_run) > 0)
                                     {
-                                        foreach($query_run as $student)
+                                        foreach($query_run as $cadastro)
                                         {
                                             ?>
                                             <tr>
-                                                <td><?= $student['id']; ?></td>
-                                                <td><?= $student['name']; ?></td>
-                                                <td><?= $student['email']; ?></td>
-                                                <td><?= $student['phone']; ?></td>
-                                                <td><?= $student['course']; ?></td>
+                                                <td><?= $cadastro['id']; ?></td>
+                                                <td><?= $cadastro['usuario']; ?></td>
+                                                <td><?= $cadastro['email']; ?></td>
+                                                <td><?= $cadastro['senha']; ?></td>
+                                                
                                                 <td>
-                                                    <a href="student-view.php?id=<?= $student['id']; ?>" class="btn btn-info btn-sm">Visualizar</a>
-                                                    <a href="student-edit.php?id=<?= $student['id']; ?>" class="btn btn-success btn-sm">Editar</a>
+                                                    <a href="student-view.php?id=<?= $cadastro['id']; ?>" class="btn btn-info btn-sm">Visualizar</a>
+                                                    <a href="student-edit.php?id=<?= $cadastro['id']; ?>" class="btn btn-success btn-sm">Editar</a>
                                                     <form action="code.php" method="POST" class="d-inline">
-                                                        <button type="submit" name="delete_student" value="<?=$student['id'];?>" class="btn btn-danger btn-sm">Deletar</button>
+                                                        <button type="submit" name="delete_cadastro" value="<?=$cadastro['id'];?>" class="btn btn-danger btn-sm">Deletar</button>
                                                     </form>
                                                 </td>
                                             </tr>

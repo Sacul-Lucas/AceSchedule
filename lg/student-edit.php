@@ -34,35 +34,31 @@ require 'dbcon.php';
                         <?php
                         if(isset($_GET['id']))
                         {
-                            $student_id = mysqli_real_escape_string($con, $_GET['id']);
-                            $query = "SELECT * FROM students WHERE id='$student_id' ";
+                            $cadastro_id = mysqli_real_escape_string($con, $_GET['id']);
+                            $query = "SELECT * FROM cadastro WHERE id='$cadastro_id' ";
                             $query_run = mysqli_query($con, $query);
 
                             if(mysqli_num_rows($query_run) > 0)
                             {
-                                $student = mysqli_fetch_array($query_run);
+                                $cadastro = mysqli_fetch_array($query_run);
                                 ?>
                                 <form action="code.php" method="POST">
-                                    <input type="hidden" name="student_id" value="<?= $student['id']; ?>">
+                                    <input type="hidden" name="cadastro_id" value="<?= $cadastro['id']; ?>">
 
                                     <div class="mb-3">
                                         <label>Nome</label>
-                                        <input type="text" name="name" value="<?=$student['name'];?>" class="form-control">
+                                        <input type="text" name="usuario" value="<?=$cadastro['usuario'];?>" class="form-control">
                                     </div>
                                     <div class="mb-3">
                                         <label>Email</label>
-                                        <input type="email" name="email" value="<?=$student['email'];?>" class="form-control">
+                                        <input type="email" name="email" value="<?=$cadastro['email'];?>" class="form-control">
                                     </div>
                                     <div class="mb-3">
-                                        <label>Telefone</label>
-                                        <input type="text" name="phone" value="<?=$student['phone'];?>" class="form-control">
+                                        <label>Senha</label>
+                                        <input type="text" name="senha" value="<?=$cadastro['senha'];?>" class="form-control">
                                     </div>
                                     <div class="mb-3">
-                                        <label>Curso</label>
-                                        <input type="text" name="course" value="<?=$student['course'];?>" class="form-control">
-                                    </div>
-                                    <div class="mb-3">
-                                        <button type="submit" name="update_student" class="btn btn-primary">
+                                        <button type="submit" name="update_cadastro" class="btn btn-primary">
                                             Atualizar Aluno
                                         </button>
                                     </div>

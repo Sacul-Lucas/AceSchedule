@@ -4,11 +4,11 @@ require 'dbcon.php';
 <!doctype html>
 <html lang="pt-BR">
   <head>
-    <!-- Required meta tags -->
+  
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <title>Detalhes do aluno</title>
@@ -30,37 +30,31 @@ require 'dbcon.php';
                         <?php
                         if(isset($_GET['id']))
                         {
-                            $student_id = mysqli_real_escape_string($con, $_GET['id']);
-                            $query = "SELECT * FROM students WHERE id='$student_id' ";
+                            $cadastro_id = mysqli_real_escape_string($con, $_GET['id']);
+                            $query = "SELECT * FROM cadastro WHERE id='$cadastro_id' ";
                             $query_run = mysqli_query($con, $query);
 
                             if(mysqli_num_rows($query_run) > 0)
                             {
-                                $student = mysqli_fetch_array($query_run);
+                                $cadastro = mysqli_fetch_array($query_run);
                                 ?>
                                 
                                     <div class="mb-3">
-                                        <label>Nome</label>
+                                        <label>Usuario</label>
                                         <p class="form-control">
-                                            <?=$student['name'];?>
+                                            <?=$cadastro['usuario'];?>
                                         </p>
                                     </div>
                                     <div class="mb-3">
                                         <label>Email</label>
                                         <p class="form-control">
-                                            <?=$student['email'];?>
+                                            <?=$cadastro['email'];?>
                                         </p>
                                     </div>
                                     <div class="mb-3">
-                                        <label>Telefone</label>
+                                        <label>Senha</label>
                                         <p class="form-control">
-                                            <?=$student['phone'];?>
-                                        </p>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label>Curso</label>
-                                        <p class="form-control">
-                                            <?=$student['course'];?>
+                                            <?=$cadastro['senha'];?>
                                         </p>
                                     </div>
 

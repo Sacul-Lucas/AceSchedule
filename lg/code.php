@@ -2,11 +2,11 @@
 session_start();
 require 'dbcon.php';
 
-if(isset($_POST['delete_student']))
+if(isset($_POST['delete_cadastro']))
 {
-    $student_id = mysqli_real_escape_string($con, $_POST['delete_student']);
+    $cadastro_id = mysqli_real_escape_string($con, $_POST['id']);
 
-    $query = "DELETE FROM students WHERE id='$student_id' ";
+    $query = "DELETE FROM cadastro WHERE id='$cadastro_id' ";
     $query_run = mysqli_query($con, $query);
 
     if($query_run)
@@ -23,16 +23,16 @@ if(isset($_POST['delete_student']))
     }
 }
 
-if(isset($_POST['update_student']))
+if(isset($_POST['update_cadastro']))
 {
-    $student_id = mysqli_real_escape_string($con, $_POST['student_id']);
+    $cadastro_id = mysqli_real_escape_string($con, $_POST['cadastro_id']);
 
-    $name = mysqli_real_escape_string($con, $_POST['name']);
+    $usuario = mysqli_real_escape_string($con, $_POST['usuario']);
     $email = mysqli_real_escape_string($con, $_POST['email']);
-    $phone = mysqli_real_escape_string($con, $_POST['phone']);
-    $course = mysqli_real_escape_string($con, $_POST['course']);
+    $senha = mysqli_real_escape_string($con, $_POST['senha']);
+   
 
-    $query = "UPDATE students SET name='$name', email='$email', phone='$phone', course='$course' WHERE id='$student_id' ";
+    $query = "UPDATE cadastro SET usuario='$usuario', email='$email', senha='$senha' WHERE id='$cadastro_id' ";
     $query_run = mysqli_query($con, $query);
 
     if($query_run)
@@ -51,14 +51,14 @@ if(isset($_POST['update_student']))
 }
 
 
-if(isset($_POST['save_student']))
+if(isset($_POST['save_cadastro']))
 {
-    $name = mysqli_real_escape_string($con, $_POST['name']);
+    $usuario = mysqli_real_escape_string($con, $_POST['usuario']);
     $email = mysqli_real_escape_string($con, $_POST['email']);
-    $phone = mysqli_real_escape_string($con, $_POST['phone']);
-    $course = mysqli_real_escape_string($con, $_POST['course']);
+    $senha = mysqli_real_escape_string($con, $_POST['senha']);
+    
 
-    $query = "INSERT INTO students (name,email,phone,course) VALUES ('$name','$email','$phone','$course')";
+    $query = "INSERT INTO cadastro (usuario,email,senha) VALUES ('$usuario','$email','$senha')";
 
     $query_run = mysqli_query($con, $query);
     if($query_run)
@@ -75,4 +75,6 @@ if(isset($_POST['save_student']))
     }
 }
 
-?>
+
+
+//------------------------------------------------------------------------------------------------------------------------
